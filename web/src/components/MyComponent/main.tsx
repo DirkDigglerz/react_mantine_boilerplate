@@ -1,12 +1,12 @@
 
-import {Box, Center, Image, Title, Text} from '@mantine/core';
+import {Box, Center, Image, Title, Text, useMantineTheme} from '@mantine/core';
 import React, { useState } from "react";
 import { useNuiEvent } from "../../hooks/useNuiEvent";
 import { fetchNui } from "../../utils/fetchNui";
 
 export default function MyComponent() {
   const [ opened, setOpened ] = useState(true);
-
+  const theme = useMantineTheme();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   useNuiEvent('UI_STATE' , (data: any) => {
     if (data.action === 'OPEN') {
@@ -32,7 +32,7 @@ export default function MyComponent() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   });
   
-
+  
 
   return (
     <>
@@ -49,7 +49,16 @@ export default function MyComponent() {
               A little silly React FiveM NUI boilerplate with mantine theming ready to go. 
             </Text>
             <Image src='https://static.vecteezy.com/system/resources/previews/024/704/874/original/koala-with-ai-generated-free-png.png' alt='Bernie' h='90%' w='100%' />
+
+            <Text>Theme colour is : </Text>
+            <Box
+              bg={theme.primaryColor}
+              h='20px'
+              w='100%'
+            ></Box>
           </Box>
+
+
         </Center>
       : ''}
     </>

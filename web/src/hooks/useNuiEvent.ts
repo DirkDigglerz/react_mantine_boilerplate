@@ -3,11 +3,10 @@ import { noop } from "../utils/misc";
 
 interface NuiMessageData<T = unknown> {
   action: string;
-  module: string;
   data: T;
 }
 
-type NuiHandlerSignature<T> = (module:string, data: T) => void;
+type NuiHandlerSignature<T> = ( data: T) => void;
 
 /**
  * A hook that manage events listeners for receiving data from the client scripts
@@ -23,7 +22,7 @@ type NuiHandlerSignature<T> = (module:string, data: T) => void;
 
 export const useNuiEvent = <T = unknown>(
   action: string,
-  handler: (module:string, data: T) => void,
+  handler: ( data: T) => void,
 ) => {
   const savedHandler: MutableRefObject<NuiHandlerSignature<T>> = useRef(noop);
 
@@ -34,11 +33,11 @@ export const useNuiEvent = <T = unknown>(
 
   useEffect(() => {
     const eventListener = (event: MessageEvent<NuiMessageData<T>>) => {
-      const { action: eventAction, data , module } = event.data;
+      const { action: eventAction, data } = event.data;
 
       if (savedHandler.current) {
         if (eventAction === action) {
-          savedHandler.current(module, data);
+          savedHandler.current( data);
         }
       }
     };
