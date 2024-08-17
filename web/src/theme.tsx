@@ -1,10 +1,10 @@
-import { createTheme, alpha } from "@mantine/core";
+import { createTheme } from "@mantine/core";
 
 const theme = createTheme({
   primaryColor: "clean",
   primaryShade: 7,
   defaultRadius: "sm",
-  fontFamily: "Akshar, sans-serif",
+  fontFamily: "Akrobat Regular, sans-serif",
   colors: {
     dark:[
       "#ffffff",
@@ -30,56 +30,6 @@ const theme = createTheme({
       "#29420a",
       "#446e11",
     ],
-  },
-  components: {
-    Fieldset:{
-      styles:{
-        legend : { textAlign:'left', transition:'all 0.3s ease-in-out', fontSize:'1.5rem'},
-        root:{
-          border:'2px solid var(--mantine-color-dark-7)',
-          background:alpha('var(--mantine-color-dark-9)', 0.4),
-        } 
-      }
-    },
-
-    TextInput:{
-      styles:{
-        input:{
-          border:'2px solid var(--mantine-color-dark-7)',
-          background:alpha('var(--mantine-color-dark-9)', 0.4),
-        },
-        
-      },
-    },
-
-
-
-    
-
-    DatePickerInput:{
-      defaultProps:{
-        
-
-      },
-      styles:{
-        
-        root:{bg:'red'},
-        body:{bg:'blue'},
-        day:{bg:'green'},
-        month:{bg:'green'},
-        calendarHeader:{
-
-          background:alpha('var(--mantine-color-dark-9)', 0.8),
-        },
-        input:{
-          border:'2px solid var(--mantine-color-dark-7)',
-          background:alpha('var(--mantine-color-dark-9)', 0.4),
-          cursor:'pointer',
-        },
-        
-        
-      },
-    }
   },
 });
 
