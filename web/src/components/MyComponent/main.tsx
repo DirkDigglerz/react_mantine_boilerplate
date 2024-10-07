@@ -3,8 +3,10 @@ import {Box, Center, Image, Title, Text, useMantineTheme} from '@mantine/core';
 import React, { useState } from "react";
 import { useNuiEvent } from "../../hooks/useNuiEvent";
 import { fetchNui } from "../../utils/fetchNui";
+import { useLocale } from '../../providers/locales/locales';
 
 export default function MyComponent() {
+  const locale = useLocale();
   const [ opened, setOpened ] = useState(true);
   const theme = useMantineTheme();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -44,13 +46,11 @@ export default function MyComponent() {
             display: 'flex',
             flexDirection: 'column',
           }}>
-            <Title order={1} style={{textAlign: 'center'}}>Fob</Title>
-            <Text>
-              A little silly React FiveM NUI boilerplate with mantine theming ready to go. 
-            </Text>
+            <Title order={1} style={{textAlign: 'center'}}>{locale('title')}</Title>
+            <Text>{locale('subtitle')}</Text>
             <Image src='https://static.vecteezy.com/system/resources/previews/024/704/874/original/koala-with-ai-generated-free-png.png' alt='Bernie' h='90%' w='100%' />
 
-            <Text>Theme colour is : </Text>
+            <Text>{locale('theme_color', theme.primaryColor)}</Text>
             <Box
               bg={theme.primaryColor}
               h='20px'

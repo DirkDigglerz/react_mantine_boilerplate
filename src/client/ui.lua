@@ -19,3 +19,10 @@ RegisterNuiCallback('GET_SETTINGS', function(data, cb)
   })
 
 end)
+
+RegisterNuiCallback('GET_LOCALES', function(data, cb)
+  cb({
+    my_locale = 'My Locale',
+  })
+  -- cb(lib.getLocales())
+end)
