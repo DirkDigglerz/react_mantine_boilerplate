@@ -5,6 +5,34 @@ const theme = createTheme({
   primaryShade: 7,
   defaultRadius: "sm",
   fontFamily: "Akrobat Regular, sans-serif",
+
+  radius:{
+    xs: '0.5vh',
+    sm: '0.75vh',
+    md: '1vh',
+    lg: '1.5vh',
+    xl: '2vh',
+    xxl: '3vh',
+  },
+
+  fontSizes: {
+    xs: '1.5vh',
+    sm: '1.8vh',
+    md: '2.2vh',
+    lg: '2.8vh',
+    xl: '3.3vh',
+    xxl: '3.8vh',
+  },
+
+  spacing:{
+    xs: '0.75vh',
+    sm: '1.5vh',
+    md: '2vh',
+    lg: '3vh',
+    xl: '4vh',
+    xxl: '5vh',
+  },
+
   colors: {
     dark:[
       "#ffffff",
